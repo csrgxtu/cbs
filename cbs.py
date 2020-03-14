@@ -7,7 +7,7 @@ from collections import OrderedDict
 
 
 logger = logging.getLogger(__name__)
-coloredlogs.install(level='DEBUG')
+coloredlogs.install(level='INFO')
 
 
 class ServerConfigManager(object):

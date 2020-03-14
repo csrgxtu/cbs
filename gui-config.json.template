@@ -1,0 +1,24 @@
+{
+    "configs": [
+        {
+            "server": "***",
+            "server_port": 0,
+            "password": "***",
+            "tcp_fast_open": false,
+            "verify": true,
+            "verify_certificate": true,
+            "verify_hostname": true,
+            "remarks": "***"
+        },
+        {
+            "server": "***",
+            "server_port": 0,
+            "password": "***",
+            "tcp_fast_open": false,
+            "verify": true,
+            "verify_certificate": true,
+            "verify_hostname": true,
+            "remarks": "***"
+        }
+    ]
+}
