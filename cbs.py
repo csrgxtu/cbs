@@ -56,7 +56,7 @@ class ServerConfigManager(object):
         """
         with open(self.out_config_file, 'r') as file_handler:
             config = json.loads(file_handler.read())
-            logger.info('output config file: {}'.format(config))
+            logger.debug('output config file: {}'.format(config))
             config.update({
                 'remote_addr': remote_addr,
                 'remote_port': remote_port,
@@ -89,29 +89,14 @@ class ChoseBestServer(object):
 
         logger.info('Latency Results:')
         for k, v in self.server_latency_in_order.items():
-            logger.info('{} latency {} ms'.format(k, v))
+            logger.debug('{} latency {} ms'.format(k, v))
         return sorted_servers[0]
 
     def set_latency_for_server(self, server):
         latencies = measure_latency(host=server, timeout=1)
-        logger.info(
+        logger.debug(
             '{} latency: {} ms'.format(
                 server, latencies[0] if latencies[0] else 'timeout'
             )
         )
         self.result[server] = latencies[0] if latencies[0] else 10000
-
-
-if __name__ == "__main__":
-    conf_manager = ServerConfigManager(
-        gui_config_file='../gui-config.json',
-        out_config_file='./config.json'
-    )
-    cbs = ChoseBestServer(conf_manager.get_servers())
-    best_server = cbs.cbs()
-    logger.info('Best server: {}'.format(best_server))
-    config = conf_manager.get_config_by_server(best_server)
-    conf_manager.write_config(
-        config.get('server'), config.get('server_port'), config.get('password')
-    )
-    logger.info('Config writed to json file: {}'.format(config))
