@@ -1,5 +1,8 @@
 # cbs
-cbs -- choose best server, Mac的clash用起来太麻烦，不友好，因此本项目提供命令行版本的脚本帮助选择最优的服务器来上网（对于trojan命令的二次封装）。
+cbs -- choose best server，基于当前网络状况选择最优的服务器。
+
+* Mac的clash不好用，莫名其妙。
+* 我需要选择特定地区内的服务器，比如上tiktok。
 
 
 ## 依赖
@@ -10,7 +13,7 @@ cbs -- choose best server, Mac的clash用起来太麻烦，不友好，因此本
 ## 原理
 gui-config.json --> cbs.py --> best server in current network --> start trojan cmd with the best server config --> repeat previous processes every 5 mins
 
-## Get started
+## 基本使用
 1, clone the repo
 ```bash
 git clone git@github.com:csrgxtu/cbs.git
