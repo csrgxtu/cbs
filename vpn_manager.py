@@ -23,7 +23,6 @@ def set_best_server_config(gui_config_file, config_file):
         out_config_file=config_file
     )
     cbs = ChoseBestServer(conf_manager.get_servers())
-    cbs = ChoseBestServer(conf_manager.get_servers())
     best_server = cbs.cbs()
     logger.info('Best server: {}'.format(best_server))
     config = conf_manager.get_config_by_server(best_server)
