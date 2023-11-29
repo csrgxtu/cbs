@@ -28,5 +28,5 @@ pip install -r requirements.txt
 
 4, start the script, it will chose the best server considering your current network.
 ```bash
-python vpn_manager.py
+python vpn_manager.py -g gui-config.json -p 1080
 ```
